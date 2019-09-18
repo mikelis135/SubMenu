@@ -1,26 +1,17 @@
-package com.example.myapplication.ui.home
+package com.example.SubMenu.ui.home
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.myapplication.Repository.TransactionRepository
-import com.example.myapplication.adapter.Transactions
+import com.example.SubMenu.Repository.TransactionRepository
+import com.example.SubMenu.adapter.Transactions
 
 class HomeViewModel : ViewModel() {
-
-
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
-    }
 
     var transactionRepository: TransactionRepository? = null
     private var mutableLiveDataTransactionList: MutableLiveData<List<Transactions>>? = null
 
-    val text: LiveData<String> = _text
-
-
    fun init() {
-        transactionRepository = TransactionRepository()
+       transactionRepository = TransactionRepository.instance
         mutableLiveDataTransactionList = transactionRepository!!.getTransactionData()
 
     }

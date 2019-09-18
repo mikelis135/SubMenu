@@ -1,4 +1,4 @@
-package com.example.myapplication.swipe;
+package com.example.SubMenu.swipe;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -21,7 +21,7 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
 
-import com.example.myapplication.R;
+import com.example.SubMenu.R;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 
 public class SwipeLayout extends FrameLayout {
+
     @Deprecated
     public static final int EMPTY_LAYOUT = -1;
     private static final int DRAG_LEFT = 1;

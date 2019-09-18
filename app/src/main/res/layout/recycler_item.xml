@@ -1,110 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<com.example.myapplication.swipe.SwipeLayout
-    android:id="@+id/swipeLayout"
+<com.example.SubMenu.swipe.SwipeLayout android:id="@+id/swipeLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="100dp">
 
     <LinearLayout
-        android:tag="Bottom1"
-        android:id="@+id/bottom_wrapper"
+        android:id="@+id/leftMenu"
         android:layout_width="70dp"
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/trash2"
+            android:id="@+id/delete"
+            android:scaleType="centerInside"
+            android:layout_gravity="center"
             android:src="@drawable/ic_delete_black_24dp"
-            android:layout_width="70dp"
-            android:paddingLeft="25dp"
-            android:paddingRight="25dp"
-            android:layout_height="match_parent" />
+            android:layout_width="match_parent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/delete_transaction" />
     </LinearLayout>
 
     <LinearLayout
-        android:tag="Bottom4"
-        android:id="@+id/bottom_wrapper_2"
+        android:id="@+id/rightMenu"
         android:layout_width="wrap_content"
         android:weightSum="1"
+        android:orientation="horizontal"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/archive"
+            android:id="@+id/refund"
             android:textColor="#fff"
-            android:text="Refund"
+            android:text="@string/refund"
+            android:background="@color/refund"
             android:layout_weight="0.5"
             android:gravity="center"
             android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:focusable="true" />
 
         <TextView
-            android:id="@+id/delete"
-            android:text="Reprocess"
-            android:background="#C7C7CC"
+            android:id="@+id/reprocess"
+            android:text="@string/reprocess"
+            android:background="@color/reprocess"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:clickable="true"
             android:layout_weight="0.5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_width="100dp"
+            android:layout_height="80dp"
+            android:focusable="true" />
 
     </LinearLayout>
+
 
     <LinearLayout
-        android:tag="Bottom3"
-        android:id="@+id/starbott"
+        android:id="@+id/transactionContent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:id="@+id/bottom_wrapper_child1"
-            android:clickable="true"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:weightSum="1">
+
+         <TextView
+            android:id="@+id/bank"
+            android:layout_margin="10dp"
+            android:text="@string/bank_name"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_margin="10dp"
+            android:text="@string/amount"
+            android:gravity="end"
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+     </LinearLayout>
+
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <ImageView
-                android:id="@+id/star"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_width="20dp"
-                android:layout_height="20dp" />
-        </RelativeLayout>
-    </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/bank"
-        android:padding="10dp"
-        android:tag="Hover"
-        android:text="Swipe Me"
-        android:gravity="left|top"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:weightSum="1">
 
         <TextView
             android:id="@+id/date"
-            android:padding="10dp"
-            android:tag="Hover"
-            android:text="11-11-11"
-            android:gravity="bottom|left"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <TextView
-            android:id="@+id/amount"
-            android:padding="10dp"
-            android:tag="Hover"
-            android:text="100.00"
-            android:gravity="right|top"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.9"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="@string/date"
+            android:textSize="12sp" />
         <TextView
             android:id="@+id/status"
-            android:padding="10dp"
-            android:tag="Hover"
-            android:text="Approved"
-            android:gravity="bottom|right"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/status"
+            android:text="@string/approved"
+            android:padding="3dp"
+            android:layout_weight="0.1"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:layout_marginBottom="2dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"/>
+
+        </LinearLayout>
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </RelativeLayout>
-</com.example.myapplication.swipe.SwipeLayout>
+            android:layout_height="0.6dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/divider"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+</com.example.SubMenu.swipe.SwipeLayout>

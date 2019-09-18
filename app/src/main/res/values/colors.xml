@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="divider">#CCCCCC</color>
+    <color name="status">#e19a49</color>
+    <color name="reprocess">#fe3c2f</color>
+    <color name="refund">#ff9502</color>
+    <color name="white">#ffffff</color>
 </resources>

@@ -1,25 +1,21 @@
-package com.example.myapplication.ui.home
+package com.example.SubMenu.ui.transfers
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.myapplication.R
-import com.example.myapplication.adapter.TransactionAdapter
+import com.example.SubMenu.R
+import com.example.SubMenu.adapter.TransactionAdapter
 
-class HomeFragment : Fragment() {
+class TransfersFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var transfersViewModel: TransfersViewModel
     private lateinit var transactionAdapter: TransactionAdapter
-    private val TAG = "MainActivity"
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,17 +23,16 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
 
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        transfersViewModel =
+            ViewModelProviders.of(this).get(TransfersViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-
-        homeViewModel.init()
+        transfersViewModel.init()
 
         initializeRecycler(root)
 
-        homeViewModel.getMutableTransactionList().observe(this, Observer {
+        transfersViewModel.getMutableTransfersList().observe(this, Observer {
             transactionAdapter.notifyDataSetChanged()
         })
 
@@ -45,10 +40,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun initializeRecycler(root : View) {
-        Log.d(TAG, "initializeRecycler: ")
-        val recyclerView : RecyclerView = root.findViewById(R.id.transactionRecycler)
+        val recyclerView : RecyclerView = root.findViewById(R.id.transfersRecycler)
 
-        transactionAdapter = TransactionAdapter(homeViewModel.getMutableTransactionList().getValue()!!)
+        transactionAdapter = TransactionAdapter(transfersViewModel.getMutableTransfersList().getValue()!!)
         recyclerView.setAdapter(transactionAdapter)
         recyclerView.setLayoutManager(LinearLayoutManager(activity, RecyclerView.VERTICAL, false))
 

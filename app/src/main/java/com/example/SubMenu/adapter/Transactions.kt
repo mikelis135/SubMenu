@@ -1,4 +1,4 @@
-package com.example.myapplication.adapter
+package com.example.SubMenu.adapter
 
 class Transactions(
     var bankName: String?,
